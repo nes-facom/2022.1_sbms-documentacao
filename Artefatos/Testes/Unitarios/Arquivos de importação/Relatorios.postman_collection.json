@@ -1,0 +1,202 @@
+{
+	"info": {
+		"_postman_id": "7bf12073-2693-4bde-bd85-f447b4e89bf7",
+		"name": "Relatorios",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20572652"
+	},
+	"item": [
+		{
+			"name": "heroku-gerar-relatorio-exame",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTY1NTc0OTg4NiwiZXhwIjoxNjU1ODM2Mjg2fQ.OCl1440Fm2jWOJSkpsgBcnJ3WKR1-0EipXzO0RaIiwA",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{heroku}}reports/exams",
+					"host": [
+						"{{heroku}}reports"
+					],
+					"path": [
+						"exams"
+					]
+				},
+				"description": "Headers: São as variáveis que indicam o tipo de conteudo (JSON) e o token de autenticação.  \nBody: São dados, o \"corpo\" do teste, no nosso caso o JSON referente aos dados que serão requisitados e testados.\n\nDescrição: É requisitado a url 'localhost:3000/reports/exams' juntamente com o JSON preenchido com do token de autenticação do usuário ADMIN, a fim de exportar todos os exames já cadastrados. É necessário salvar o arquivo como resposta para obter um arquivo CSV no Postman.\n\nResultado: Status 200 OK. ADMIN consegue exportar todos os exames epidemiológicos."
+			},
+			"response": []
+		},
+		{
+			"name": "heroku-criar-relatorio-exame",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTY1NTc0NzU2NiwiZXhwIjoxNjU1ODMzOTY2fQ.G3eYpyRyKnkZQUhwAs-dft-7PQgIPs5H1bBkoeaa3Qo",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{heroku}}reports/exams",
+					"host": [
+						"{{heroku}}reports"
+					],
+					"path": [
+						"exams"
+					]
+				},
+				"description": "Headers: São as variáveis que indicam o tipo de conteudo (JSON) e o token de autenticação.  \nBody: São dados, o \"corpo\" do teste, no nosso caso o JSON referente aos dados que serão requisitados e testados.\n\nDescrição: É requisitado a url 'localhost:3000/reports/exams' juntamente com o JSON preenchido com do token de autenticação do usuário ADMIN, a fim de exportar todos os exames já cadastrados. É necessário salvar o arquivo como resposta para obter um arquivo CSV no Postman.\n\nResultado: Status 200 OK. ADMIN consegue exportar todos os exames epidemiológicos."
+			},
+			"response": []
+		},
+		{
+			"name": "heroku-gerar-relatorio-socio",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTY1NTc0NzU2NiwiZXhwIjoxNjU1ODMzOTY2fQ.G3eYpyRyKnkZQUhwAs-dft-7PQgIPs5H1bBkoeaa3Qo",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{heroku}}reports/socioEconomicEvaluations",
+					"host": [
+						"{{heroku}}reports"
+					],
+					"path": [
+						"socioEconomicEvaluations"
+					]
+				},
+				"description": "Headers: São as variáveis que indicam o tipo de conteudo (JSON) e o token de autenticação.  \nBody: São dados, o \"corpo\" do teste, no nosso caso o JSON referente aos dados que serão requisitados e testados.\n\nDescrição: É requisitado a url 'localhost:3000/reports/socioEconomicEvaluations' juntamente com o JSON preenchido com o token de autenticação do usuário ADMIN, a fim de exportar todos as avaliações socioeconômicas já cadastradas. É necessário salvar o arquivo como resposta para obter um arquivo CSV no Postman.\n\nResultado: Status 200 OK. ADMIN consegue exportar todas as avaliações socioeconômicas."
+			},
+			"response": []
+		},
+		{
+			"name": "heroku-criar-relatorio-socio",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTY1NTc0NzU2NiwiZXhwIjoxNjU1ODMzOTY2fQ.G3eYpyRyKnkZQUhwAs-dft-7PQgIPs5H1bBkoeaa3Qo",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{heroku}}reports/socioEconomicEvaluations",
+					"host": [
+						"{{heroku}}reports"
+					],
+					"path": [
+						"socioEconomicEvaluations"
+					]
+				},
+				"description": "Headers: São as variáveis que indicam o tipo de conteudo (JSON) e o token de autenticação.  \nBody: São dados, o \"corpo\" do teste, no nosso caso o JSON referente aos dados que serão requisitados e testados.\n\nDescrição: É requisitado a url 'localhost:3000/reports/socioEconomicEvaluations' juntamente com o JSON preenchido com o token de autenticação do usuário ADMIN, a fim de exportar todos as avaliações socioeconômicas já cadastradas. É necessário salvar o arquivo como resposta para obter um arquivo CSV no Postman.\n\nResultado: Status 200 OK. ADMIN consegue exportar todas as avaliações socioeconômicas."
+			},
+			"response": []
+		},
+		{
+			"name": "TU110-criar-relatorio-exame",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTY1NTc0OTUxNSwiZXhwIjoxNjY0MzAzMTE1fQ.PVQddhiZf_7T_1daT7e0tAcd5pQvFFI-BrLg2tTagac",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{sbms-relat}}/exams",
+					"host": [
+						"{{sbms-relat}}"
+					],
+					"path": [
+						"exams"
+					]
+				},
+				"description": "Headers: São as variáveis que indicam o tipo de conteudo (JSON) e o token de autenticação.  \nBody: São dados, o \"corpo\" do teste, no nosso caso o JSON referente aos dados que serão requisitados e testados.\n\nDescrição: É requisitado a url 'localhost:3000/reports/exams' juntamente com o JSON preenchido com do token de autenticação do usuário ADMIN, a fim de exportar todos os exames já cadastrados. É necessário salvar o arquivo como resposta para obter um arquivo CSV no Postman.\n\nResultado: Status 200 OK. ADMIN consegue exportar todos os exames epidemiológicos."
+			},
+			"response": []
+		},
+		{
+			"name": "TU111-gerar-relatorio-exame",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTY1NTc0OTUxNSwiZXhwIjoxNjY0MzAzMTE1fQ.PVQddhiZf_7T_1daT7e0tAcd5pQvFFI-BrLg2tTagac",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{sbms-relat}}/exams",
+					"host": [
+						"{{sbms-relat}}"
+					],
+					"path": [
+						"exams"
+					]
+				},
+				"description": "Headers: São as variáveis que indicam o tipo de conteudo (JSON) e o token de autenticação.  \nBody: São dados, o \"corpo\" do teste, no nosso caso o JSON referente aos dados que serão requisitados e testados.\n\nDescrição: É requisitado a url 'localhost:3000/reports/exams' juntamente com o JSON preenchido com do token de autenticação do usuário ADMIN, a fim de exportar todos os exames já cadastrados. É necessário salvar o arquivo como resposta para obter um arquivo CSV no Postman.\n\nResultado: Status 200 OK. ADMIN consegue exportar todos os exames epidemiológicos."
+			},
+			"response": []
+		},
+		{
+			"name": "TU112-criar-relatorio-socio",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTY1NTc0NzU2NiwiZXhwIjoxNjU1ODMzOTY2fQ.G3eYpyRyKnkZQUhwAs-dft-7PQgIPs5H1bBkoeaa3Qo",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{sbms-relat}}/socioEconomicEvaluations",
+					"host": [
+						"{{sbms-relat}}"
+					],
+					"path": [
+						"socioEconomicEvaluations"
+					]
+				},
+				"description": "Headers: São as variáveis que indicam o tipo de conteudo (JSON) e o token de autenticação.  \nBody: São dados, o \"corpo\" do teste, no nosso caso o JSON referente aos dados que serão requisitados e testados.\n\nDescrição: É requisitado a url 'localhost:3000/reports/socioEconomicEvaluations' juntamente com o JSON preenchido com o token de autenticação do usuário ADMIN, a fim de exportar todos as avaliações socioeconômicas já cadastradas. É necessário salvar o arquivo como resposta para obter um arquivo CSV no Postman.\n\nResultado: Status 200 OK. ADMIN consegue exportar todas as avaliações socioeconômicas."
+			},
+			"response": []
+		},
+		{
+			"name": "TU113-gerar-relatorio-socio",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTY1NTc0NzU2NiwiZXhwIjoxNjU1ODMzOTY2fQ.G3eYpyRyKnkZQUhwAs-dft-7PQgIPs5H1bBkoeaa3Qo",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{sbms-relat}}/socioEconomicEvaluations",
+					"host": [
+						"{{sbms-relat}}"
+					],
+					"path": [
+						"socioEconomicEvaluations"
+					]
+				},
+				"description": "Headers: São as variáveis que indicam o tipo de conteudo (JSON) e o token de autenticação.  \nBody: São dados, o \"corpo\" do teste, no nosso caso o JSON referente aos dados que serão requisitados e testados.\n\nDescrição: É requisitado a url 'localhost:3000/reports/socioEconomicEvaluations' juntamente com o JSON preenchido com o token de autenticação do usuário ADMIN, a fim de exportar todos as avaliações socioeconômicas já cadastradas. É necessário salvar o arquivo como resposta para obter um arquivo CSV no Postman.\n\nResultado: Status 200 OK. ADMIN consegue exportar todas as avaliações socioeconômicas."
+			},
+			"response": []
+		}
+	]
+}

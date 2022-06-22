@@ -1,0 +1,400 @@
+{
+	"info": {
+		"_postman_id": "3ddbddc0-83c8-6b70-548a-3b1a08e198fe",
+		"name": "CRUD Socioeconomico",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20572652"
+	},
+	"item": [
+		{
+			"name": "TU50-admin-criar-socio",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{authAdminH}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n          \"idPessoa\": 1,\r\n          \"idLocal\": 1,\r\n          \"data\":\"2001-01-01\",\r\n          \"qtdPessoasResidencia\": 5,\r\n          \"qtdComodosDormitorio\": 5,\r\n          \"qtdBens\": 6,\r\n          \"qtdTotalRendaUltimoMes\": 2000,\r\n          \"escolaridadeMae\": \"ENSINO_MEDIO_COMPLETO\",\r\n          \"escolaridadePai\": \"ENSINO_MEDIO_COMPLETO\",\r\n          \"recebeBeneficioSocial\": true,\r\n          \"filhoDorDente6Meses\": true,\r\n          \"filhoNivelDor\": 8,\r\n          \"filhoVisitouDentista\": false,\r\n          \"filhoUltimaConsulta\": \"MENOS_1_ANO\",\r\n          \"filhoLocalConsulta\": \"PUBLICO\",\r\n          \"motivoUltimaConsulta\": \"DOR\",\r\n          \"avaliacaoUltimaConsulta\": \"NUNCA_FOI\",\r\n          \"filhoAvaliacaoBucal\": \"REGULAR\",\r\n          \"filhoQtdEscovacoesPorDia\": \"DUAS\",\r\n          \"frequenciaTrocaEscovas\": \"ATE_3_MESES\",\r\n          \"usaFioDental\": true,\r\n          \"usaPastaComFluor\": true\r\n        }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{sbms-socio}}",
+					"host": [
+						"{{sbms-socio}}"
+					]
+				},
+				"description": "Headers: São as variáveis que indicam o tipo de conteúdo (JSON) e o token de autenticação.  \nBody: São dados, o \"corpo\" do teste, no nosso caso o JSON referente aos dados que serão requisitados e testados.\n\nDescrição: É requisitado a url 'localhost:3000/socioEconomicEvaluations' juntamente com o JSON preenchido com dados idPessoa, idLocal, data, qtdPessoasResidencia, qtdComodosDormitorio, qtdBens, qtdTotalRendaUltimoMes, escolaridadeMae, escolaridadePai, recebeBeneficioSocial, filhoDorDente6Meses, filhoNivelDor, filhoVisitouDentista, filhoUltimaConsulta, motivoUltimaConsulta, avaliacaoUltimaConsulta, filhoAvaliacaoBucal, filhoQtdEscovacoesPorDia, frequenciaTrocaEscovas, usaFioDental, usaPastaComFluor, e o token de autenticação do usuário ADMIN, a fim de cadastrar um novo questionário socioeconomico para uma determinada pessoa em um determinado local.\n\nResultado: Status 200 OK. Admin consegue cadastrar novo questionário socioeconomico. Todos os dados foram testados e validados. Dados diferentes (ex: onde era string, foi colocado int) foram testados e não passaram."
+			},
+			"response": []
+		},
+		{
+			"name": "TU51-coordenador-criar-socio",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{authCoordH}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n          \"idPessoa\": 2,         \r\n          \"idLocal\": 1,\r\n          \"data\":\"2005-12-12\",\r\n          \"qtdPessoasResidencia\":2,\r\n          \"qtdComodosDormitorio\": 5,\r\n          \"qtdBens\": 25,\r\n          \"qtdTotalRendaUltimoMes\": 2000,\r\n          \"escolaridadeMae\": \"ENSINO_MEDIO_COMPLETO\",\r\n          \"escolaridadePai\": \"ENSINO_MEDIO_COMPLETO\",\r\n          \"recebeBeneficioSocial\": true,\r\n          \"filhoDorDente6Meses\": true,\r\n          \"filhoNivelDor\": 10,\r\n          \"filhoVisitouDentista\": false,\r\n          \"filhoUltimaConsulta\": \"MENOS_1_ANO\",\r\n          \"filhoLocalConsulta\": \"PUBLICO\",\r\n          \"motivoUltimaConsulta\": \"DOR\",\r\n          \"avaliacaoUltimaConsulta\": \"NUNCA_FOI\",\r\n          \"filhoAvaliacaoBucal\": \"REGULAR\",\r\n          \"filhoQtdEscovacoesPorDia\": \"DUAS\",\r\n          \"frequenciaTrocaEscovas\": \"ATE_3_MESES\",\r\n          \"usaFioDental\": false,\r\n          \"usaPastaComFluor\": true\r\n        }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{sbms-socio}}",
+					"host": [
+						"{{sbms-socio}}"
+					]
+				},
+				"description": "Headers: São as variáveis que indicam o tipo de conteúdo (JSON) e o token de autenticação.  \nBody: São dados, o \"corpo\" do teste, no nosso caso o JSON referente aos dados que serão requisitados e testados.\n\nDescrição: É requisitado a url 'localhost:3000/socioEconomicEvaluations' juntamente com o JSON preenchido com dados idPessoa, idLocal, data, qtdPessoasResidencia, qtdComodosDormitorio, qtdBens, qtdTotalRendaUltimoMes, escolaridadeMae, escolaridadePai, recebeBeneficioSocial, filhoDorDente6Meses, filhoNivelDor, filhoVisitouDentista, filhoUltimaConsulta, motivoUltimaConsulta, avaliacaoUltimaConsulta, filhoAvaliacaoBucal, filhoQtdEscovacoesPorDia, frequenciaTrocaEscovas, usaFioDental, usaPastaComFluor, e o token de autenticação do usuário COORDENADOR, a fim de cadastrar um novo questionário socioeconomico para uma determinada pessoa em um determinado local.\n\nResultado: Status 200 OK. Coordenador consegue cadastrar novo questionário socioeconomico. Todos os dados foram testados e validados. Dados diferentes (ex: onde era string, foi colocado int) foram testados e não passaram."
+			},
+			"response": []
+		},
+		{
+			"name": "TU52-dentista-criar-socio",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{authDentH}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n          \"idPessoa\": 1,         \r\n          \"idLocal\": 1,\r\n          \"data\":\"2005-12-12\",\r\n          \"qtdPessoasResidencia\":2,\r\n          \"qtdComodosDormitorio\": 5,\r\n          \"qtdBens\": 6,\r\n          \"qtdTotalRendaUltimoMes\": 2000,\r\n          \"escolaridadeMae\": \"ENSINO_MEDIO_COMPLETO\",\r\n          \"escolaridadePai\": \"ENSINO_MEDIO_COMPLETO\",\r\n          \"recebeBeneficioSocial\": true,\r\n          \"filhoDorDente6Meses\": true,\r\n          \"filhoNivelDor\": 8,\r\n          \"filhoVisitouDentista\": false,\r\n          \"filhoUltimaConsulta\": \"MENOS_1_ANO\",\r\n          \"filhoLocalConsulta\": \"PUBLICO\",\r\n          \"motivoUltimaConsulta\": \"DOR\",\r\n          \"avaliacaoUltimaConsulta\": \"NUNCA_FOI\",\r\n          \"filhoAvaliacaoBucal\": \"REGULAR\",\r\n          \"filhoQtdEscovacoesPorDia\": \"DUAS\",\r\n          \"frequenciaTrocaEscovas\": \"ATE_3_MESES\",\r\n          \"usaFioDental\": false,\r\n          \"usaPastaComFluor\": true\r\n        }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{sbms-socio}}",
+					"host": [
+						"{{sbms-socio}}"
+					]
+				},
+				"description": "Headers: São as variáveis que indicam o tipo de conteúdo (JSON) e o token de autenticação.  \nBody: São dados, o \"corpo\" do teste, no nosso caso o JSON referente aos dados que serão requisitados e testados.\n\nDescrição: É requisitado a url 'localhost:3000/socioEconomicEvaluations' juntamente com o JSON preenchido com dados idPessoa, idLocal, data, qtdPessoasResidencia, qtdComodosDormitorio, qtdBens, qtdTotalRendaUltimoMes, escolaridadeMae, escolaridadePai, recebeBeneficioSocial, filhoDorDente6Meses, filhoNivelDor, filhoVisitouDentista, filhoUltimaConsulta, motivoUltimaConsulta, avaliacaoUltimaConsulta, filhoAvaliacaoBucal, filhoQtdEscovacoesPorDia, frequenciaTrocaEscovas, usaFioDental, usaPastaComFluor, e o token de autenticação do usuário DENTISTA, a fim de cadastrar um novo questionário socioeconomico para uma determinada pessoa em um determinado local.\n\nResultado: Status 200 OK. Dentista consegue cadastrar novo questionário socioeconomico. Todos os dados foram testados e validados. Dados diferentes (ex: onde era string, foi colocado int) foram testados e não passaram."
+			},
+			"response": []
+		},
+		{
+			"name": "TU53-assistente-criar-socio",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{authAssistH}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n          \"idPessoa\": 1,         \r\n          \"idLocal\": 1,\r\n          \"data\":\"2005-12-12\",\r\n          \"qtdPessoasResidencia\":2,\r\n          \"qtdComodosDormitorio\": 5,\r\n          \"qtdBens\": 6,\r\n          \"qtdTotalRendaUltimoMes\": 2000,\r\n          \"escolaridadeMae\": \"ENSINO_MEDIO_COMPLETO\",\r\n          \"escolaridadePai\": \"ENSINO_MEDIO_COMPLETO\",\r\n          \"recebeBeneficioSocial\": true,\r\n          \"filhoDorDente6Meses\": true,\r\n          \"filhoNivelDor\": 8,\r\n          \"filhoVisitouDentista\": false,\r\n          \"filhoUltimaConsulta\": \"MENOS_1_ANO\",\r\n          \"filhoLocalConsulta\": \"PUBLICO\",\r\n          \"motivoUltimaConsulta\": \"DOR\",\r\n          \"avaliacaoUltimaConsulta\": \"NUNCA_FOI\",\r\n          \"filhoAvaliacaoBucal\": \"REGULAR\",\r\n          \"filhoQtdEscovacoesPorDia\": \"DUAS\",\r\n          \"frequenciaTrocaEscovas\": \"ATE_3_MESES\",\r\n          \"usaFioDental\": false,\r\n          \"usaPastaComFluor\": true\r\n        }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{sbms-socio}}",
+					"host": [
+						"{{sbms-socio}}"
+					]
+				},
+				"description": "Headers: São as variáveis que indicam o tipo de conteúdo (JSON) e o token de autenticação.  \nBody: São dados, o \"corpo\" do teste, no nosso caso o JSON referente aos dados que serão requisitados e testados.\n\nDescrição: É requisitado a url 'localhost:3000/socioEconomicEvaluations' juntamente com o JSON preenchido com dados idPessoa, idLocal, data, qtdPessoasResidencia, qtdComodosDormitorio, qtdBens, qtdTotalRendaUltimoMes, escolaridadeMae, escolaridadePai, recebeBeneficioSocial, filhoDorDente6Meses, filhoNivelDor, filhoVisitouDentista, filhoUltimaConsulta, motivoUltimaConsulta, avaliacaoUltimaConsulta, filhoAvaliacaoBucal, filhoQtdEscovacoesPorDia, frequenciaTrocaEscovas, usaFioDental, usaPastaComFluor, e o token de autenticação do usuário ASSISTENTE, a fim de cadastrar um novo questionário socioeconomico para uma determinada pessoa em um determinado local.\n\nResultado: Status 200 OK. Assistente consegue cadastrar novo questionário socioeconomico. Todos os dados foram testados e validados. Dados diferentes (ex: onde era string, foi colocado int) foram testados e não passaram."
+			},
+			"response": []
+		},
+		{
+			"name": "TU54-arrolador-criar-socio",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{authArrolH}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n          \"idPessoa\": 2,\r\n          \"idLocal\": 1,\r\n          \"data\":\"2001-01-01\",\r\n          \"qtdPessoasResidencia\": 5,\r\n          \"qtdComodosDormitorio\": 5,\r\n          \"qtdBens\": 343434,\r\n          \"qtdTotalRendaUltimoMes\": 2000,\r\n          \"escolaridadeMae\": \"ENSINO_MEDIO_COMPLETO\",\r\n          \"escolaridadePai\": \"ENSINO_MEDIO_COMPLETO\",\r\n          \"recebeBeneficioSocial\": true,\r\n          \"filhoDorDente6Meses\": true,\r\n          \"filhoNivelDor\": 10,\r\n          \"filhoVisitouDentista\": false,\r\n          \"filhoUltimaConsulta\": \"MENOS_1_ANO\",\r\n          \"filhoLocalConsulta\": \"PUBLICO\",\r\n          \"motivoUltimaConsulta\": \"DOR\",\r\n          \"avaliacaoUltimaConsulta\": \"NUNCA_FOI\",\r\n          \"filhoAvaliacaoBucal\": \"REGULAR\",\r\n          \"filhoQtdEscovacoesPorDia\": \"DUAS\",\r\n          \"frequenciaTrocaEscovas\": \"ATE_3_MESES\",\r\n          \"usaFioDental\": true,\r\n          \"usaPastaComFluor\": true\r\n        }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{sbms-socio}}",
+					"host": [
+						"{{sbms-socio}}"
+					]
+				},
+				"description": "Headers: São as variáveis que indicam o tipo de conteúdo (JSON) e o token de autenticação.  \nBody: São dados, o \"corpo\" do teste, no nosso caso o JSON referente aos dados que serão requisitados e testados.\n\nDescrição: É requisitado a url 'localhost:3000/socioEconomicEvaluations' juntamente com o JSON preenchido com dados idPessoa, idLocal, data, qtdPessoasResidencia, qtdComodosDormitorio, qtdBens, qtdTotalRendaUltimoMes, escolaridadeMae, escolaridadePai, recebeBeneficioSocial, filhoDorDente6Meses, filhoNivelDor, filhoVisitouDentista, filhoUltimaConsulta, motivoUltimaConsulta, avaliacaoUltimaConsulta, filhoAvaliacaoBucal, filhoQtdEscovacoesPorDia, frequenciaTrocaEscovas, usaFioDental, usaPastaComFluor, e o token de autenticação do usuário ARROLADOR, a fim de cadastrar um novo questionário socioeconomico para uma determinada pessoa em um determinado local.\n\nResultado: Status 200 OK. Arrolador consegue cadastrar novo questionário socioeconomico. Todos os dados foram testados e validados. Dados diferentes (ex: onde era string, foi colocado int) foram testados e não passaram."
+			},
+			"response": []
+		},
+		{
+			"name": "TU55-admin-mostrar-todos-socioeconomico",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{authAdminH}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{sbms-socio}}",
+					"host": [
+						"{{sbms-socio}}"
+					]
+				},
+				"description": "Headers: São as variáveis que indicam o tipo de conteúdo (JSON) e o token de autenticação.\n\nDescrição: É requisitado a url 'localhost:3000/socioEconomicEvaluations' junto com o token de autenticação do usuário ADMIN, a fim de mostrar todos os questionários socioeconomicos cadastrados. Mostra também a data de criação, o local, o nome da pessoa e dados desta e o usuário que cadastrou o questionário.\n\nResultado:\n\n*   02/05 Status 200 OK. Admin consegue visualizar todos os questionários socioeconomicos já cadastrados."
+			},
+			"response": []
+		},
+		{
+			"name": "TU56-mostrar-todos-socioeconomico-por-equipe",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{authAdminH}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{sbms-socio}}",
+					"host": [
+						"{{sbms-socio}}"
+					]
+				},
+				"description": "Headers: São as variáveis que indicam o tipo de conteúdo (JSON) e o token de autenticação.\n\nDescrição: É requisitado a url 'localhost:3000/socioEconomicEvaluations' junto com o token de autenticação do usuário, a fim de mostrar todos os questionários socioeconomicos cadastrados somente da equipe em que o usuário esta inserido. Mostra também a data de criação, o local, o nome da pessoa e dados desta e o usuário que cadastrou o questionário.\n\nResultado: Coordenador, Dentista, Assistente e Arrolador estão corretos, conseguem ver somente das suas respectivas equipes.\n\nRelatório de Bugs:  \n\\- 02/05 Status 200 OK. Coordenador consegue visualizar todos os questionários socioeconomicos já cadastrados (o certo era só verificar os da sua própria equipe). Dentista, Assistente e Arrolador estão corretos, conseguem ver somente das suas respectivas equipes. (To fix).\n\n\\- 03/05 Status 200 OK. Coordenador, Dentista, Assistente e Arrolador estão corretos, conseguem ver somente das suas respectivas equipes. (Fixed - Demetrius)."
+			},
+			"response": []
+		},
+		{
+			"name": "TU57-mostrar-um-socioeconomico-por-equipe",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{authDentH}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{sbms-socio}}/1",
+					"host": [
+						"{{sbms-socio}}"
+					],
+					"path": [
+						"1"
+					]
+				},
+				"description": "Headers: São as variáveis que indicam o tipo de conteúdo (JSON) e o token de autenticação.\n\nDescrição: É requisitado a url 'localhost:3000/socioEconomicEvaluations/:id' junto com o token de autenticação do usuário, a fim de mostrar um questionário socioeconomico cadastrado somente. Mostra também a data de criação, o local, o nome da pessoa e dados desta e o usuário que cadastrou o questionário.\n\nResultado: Admin, Coordenador, Dentista, Assistente e Arrolador conseguem visualizar os questionarios individualmente referente a sua equipe e quando tentam acessar formularios de outras esquipes não conseguem.\n\nRelatório de Bugs:  \n\\- 03/05 Status 200 OK. Coordenador, Dentista, Assistente e Arrolador conseguem visualizar os questionarios individualmente referente a sua equipe e quando tentam acessar formularios de outras esquipes não conseguem. O usuário Admin, não consegue acessar nenhum formulario socioeconomico. (To fix)\n\n\\- 03/05 Status 200 OK. O usuário Admin, consegue acessar qualquer um formulario socioeconomico. (Fixed - Demetrius)."
+			},
+			"response": []
+		},
+		{
+			"name": "TU58-update-socioeconomico",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{authCoordH}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n          \"idPessoa\": 2,         \r\n          \"idLocal\": 1,\r\n          \"data\":\"2005-12-12\",\r\n          \"qtdPessoasResidencia\":5,\r\n          \"qtdComodosDormitorio\": 5,\r\n          \"qtdBens\": 1,\r\n          \"qtdTotalRendaUltimoMes\": 2000,\r\n          \"escolaridadeMae\": \"ENSINO_MEDIO_COMPLETO\",\r\n          \"escolaridadePai\": \"ENSINO_MEDIO_COMPLETO\",\r\n          \"recebeBeneficioSocial\": true,\r\n          \"filhoDorDente6Meses\": true,\r\n          \"filhoNivelDor\": 10,\r\n          \"filhoVisitouDentista\": false,\r\n          \"filhoUltimaConsulta\": \"MENOS_1_ANO\",\r\n          \"filhoLocalConsulta\": \"PUBLICO\",\r\n          \"motivoUltimaConsulta\": \"DOR\",\r\n          \"avaliacaoUltimaConsulta\": \"NUNCA_FOI\",\r\n          \"filhoAvaliacaoBucal\": \"REGULAR\",\r\n          \"filhoQtdEscovacoesPorDia\": \"DUAS\",\r\n          \"frequenciaTrocaEscovas\": \"ATE_3_MESES\",\r\n          \"usaFioDental\": false,\r\n          \"usaPastaComFluor\": true\r\n        }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{sbms-socio}}/11",
+					"host": [
+						"{{sbms-socio}}"
+					],
+					"path": [
+						"11"
+					]
+				},
+				"description": "Headers: São as variáveis que indicam o tipo de conteúdo (JSON) e o token de autenticação.\n\nDescrição: É requisitado a url 'localhost:3000/socioEconomicEvaluations/9' junto com o token de autenticação do usuário, a fim de editar um questionário socioeconômico cadastrado.\n\nResultado: Admin consegue editar qualquer questionário socioeconômico e outros usuários somente os da sua equipe.\n\nRelatório de Bugs:  \n\\- 03/05 Status 200 OK. Coordenador consegue editar um questionário socioeconômico já cadastrado por ele.\n\n\\- 03/05 Status 200 OK. Foi testado também o Administrador editar este mesmo questionário criado pelo Coordenador, o qual foi possível editar.\n\n\\- 18/05: Status 200 OK. Coordenador da equipe 1 consegue editar o FormularioSocioecnomico criado pelo Admin (sem equipe). (To fix)\n\n\\- 18/05: Status 404 Not found. Não é possível mais editar de outras equipes. (Fixed by Demetrius Panovitch)"
+			},
+			"response": []
+		},
+		{
+			"name": "TU59-arquivar-socioeconomico",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{authAdminC}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{sbms-socio}}/9/archive",
+					"host": [
+						"{{sbms-socio}}"
+					],
+					"path": [
+						"9",
+						"archive"
+					]
+				},
+				"description": "Headers: São as variáveis que indicam o tipo de conteúdo (JSON) e o token de autenticação.\n\nDescrição: É requisitado a url 'localhost:3000/socioEconomicEvaluations/6/archive' junto com o token de autenticação do usuário, a fim de arquivar um questionário socioeconômico cadastrado.\n\nResultado: 25/05 Status 200 OK. Administrador, Coordenador, Dentista, Assistente e Arrolador conseguem arquivar um questionário socioeconômico já cadastrado por ele ou equipe somente."
+			},
+			"response": []
+		},
+		{
+			"name": "heroku-criar-socio",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{authCoordH}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n          \"idPessoa\": 1,\r\n          \"idLocal\": 1,\r\n          \"data\":\"2001-01-01\",\r\n          \"qtdPessoasResidencia\": 5,\r\n          \"qtdComodosDormitorio\": 5,\r\n          \"qtdBens\": 6,\r\n          \"qtdTotalRendaUltimoMes\": 2000,\r\n          \"escolaridadeMae\": \"ENSINO_MEDIO_COMPLETO\",\r\n          \"escolaridadePai\": \"ENSINO_MEDIO_COMPLETO\",\r\n          \"recebeBeneficioSocial\": true,\r\n          \"filhoDorDente6Meses\": true,\r\n          \"filhoNivelDor\": 8,\r\n          \"filhoVisitouDentista\": false,\r\n          \"filhoUltimaConsulta\": \"MENOS_1_ANO\",\r\n          \"filhoLocalConsulta\": \"PUBLICO\",\r\n          \"motivoUltimaConsulta\": \"DOR\",\r\n          \"avaliacaoUltimaConsulta\": \"NUNCA_FOI\",\r\n          \"filhoAvaliacaoBucal\": \"REGULAR\",\r\n          \"filhoQtdEscovacoesPorDia\": \"DUAS\",\r\n          \"frequenciaTrocaEscovas\": \"ATE_3_MESES\",\r\n          \"usaFioDental\": true,\r\n          \"usaPastaComFluor\": true\r\n        }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{heroku}}socioEconomicEvaluations",
+					"host": [
+						"{{heroku}}socioEconomicEvaluations"
+					]
+				},
+				"description": "Foram executados os testes TU50, TU51, TU52, TU53 e TU54, nesse caso utilizando a URL do Heroku ([http://saude-bucal-backend.herokuapp.com/](http://saude-bucal-backend.herokuapp.com/)) e todos os usuários listados nos testes conseguiram cadastrar novos exames socioeconômicos."
+			},
+			"response": []
+		},
+		{
+			"name": "heroku-mostrar-socioeconomicos",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{authCoordH}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{heroku}}socioEconomicEvaluations",
+					"host": [
+						"{{heroku}}socioEconomicEvaluations"
+					]
+				},
+				"description": "Foi executado o teste TU55, TU56 e TU57, nesse caso utilizando a URL do Heroku ([http://saude-bucal-backend.herokuapp.com/](http://saude-bucal-backend.herokuapp.com/)) e foi possível verificar os exames socioeconômicos criados, tanto a lista de todos por equipe quanto individuais."
+			},
+			"response": []
+		},
+		{
+			"name": "heroku-update-socioeconomico",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{authAdminH}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n          \"idPessoa\": 2,         \r\n          \"idLocal\": 1,\r\n          \"data\":\"2005-12-12\",\r\n          \"qtdPessoasResidencia\":5,\r\n          \"qtdComodosDormitorio\": 5,\r\n          \"qtdBens\": 1,\r\n          \"qtdTotalRendaUltimoMes\": 2000,\r\n          \"escolaridadeMae\": \"ENSINO_MEDIO_COMPLETO\",\r\n          \"escolaridadePai\": \"ENSINO_MEDIO_COMPLETO\",\r\n          \"recebeBeneficioSocial\": true,\r\n          \"filhoDorDente6Meses\": true,\r\n          \"filhoNivelDor\": 10,\r\n          \"filhoVisitouDentista\": false,\r\n          \"filhoUltimaConsulta\": \"MENOS_1_ANO\",\r\n          \"filhoLocalConsulta\": \"PUBLICO\",\r\n          \"motivoUltimaConsulta\": \"DOR\",\r\n          \"avaliacaoUltimaConsulta\": \"NUNCA_FOI\",\r\n          \"filhoAvaliacaoBucal\": \"REGULAR\",\r\n          \"filhoQtdEscovacoesPorDia\": \"DUAS\",\r\n          \"frequenciaTrocaEscovas\": \"ATE_3_MESES\",\r\n          \"usaFioDental\": false,\r\n          \"usaPastaComFluor\": true\r\n        }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{heroku}}socioEconomicEvaluations/2",
+					"host": [
+						"{{heroku}}socioEconomicEvaluations"
+					],
+					"path": [
+						"2"
+					]
+				},
+				"description": "Foi executado o teste TU58, nesse caso utilizando a URL do Heroku ([http://saude-bucal-backend.herokuapp.com/](http://saude-bucal-backend.herokuapp.com/)) e foi possível editar um exame socioeconômico criado pela própria equipe. Administrador consegue editar qualquer socioeconômico."
+			},
+			"response": []
+		},
+		{
+			"name": "heroku-arquivar-socioeconomico",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{authCoordH}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{heroku}}socioEconomicEvaluations/9/archive",
+					"host": [
+						"{{heroku}}socioEconomicEvaluations"
+					],
+					"path": [
+						"9",
+						"archive"
+					]
+				},
+				"description": "Foi executado o teste T59, nesse caso utilizando a URL do Heroku ([http://saude-bucal-backend.herokuapp.com/](http://saude-bucal-backend.herokuapp.com/)) e foi possível arquivar o exame socioeconômico que foi criado pela própria pessoa ou pela própria equipe."
+			},
+			"response": []
+		}
+	]
+}

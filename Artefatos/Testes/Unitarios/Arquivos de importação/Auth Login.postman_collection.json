@@ -1,0 +1,281 @@
+{
+	"info": {
+		"_postman_id": "b7808ad5-37e7-c56d-b8fd-6943125e14cd",
+		"name": "Auth Login",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20572652"
+	},
+	"item": [
+		{
+			"name": "TU01-admin-auth-login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"email\": \"admin@admin.com\",\r\n  \"senha\": \"admin\"\r\n}"
+				},
+				"url": {
+					"raw": "{{sbms-login}}",
+					"host": [
+						"{{sbms-login}}"
+					]
+				},
+				"description": "Headers: São as variáveis que indicam o tipo de conteudo (JSON) e o token de autenticação.  \nBody: São dados, o \"corpo\" do teste, no nosso caso o JSON referente aos dados que serão requisitados e testados.\n\nDescrição: É requisitado a url 'localhost:3000/login/auth' juntamente com o JSON, a fim de autenticar e logar o usuário ADMIN.\n\nResultado: Status 200 - OK, autenticação foi realizado com sucesso."
+			},
+			"response": []
+		},
+		{
+			"name": "TU02-coordenador-auth-login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"email\": \"coordenador1@coordenador.com\",\r\n  \"senha\": \"coordenador\"\r\n}"
+				},
+				"url": {
+					"raw": "{{sbms-login}}",
+					"host": [
+						"{{sbms-login}}"
+					]
+				},
+				"description": "Headers: São as variáveis que indicam o tipo de conteudo (JSON) e o token de autenticação.  \nBody: São dados, o \"corpo\" do teste, no nosso caso o JSON referente aos dados que serão requisitados e testados.\n\nDescrição: É requisitado a url 'localhost:3000/login/auth' juntamente com o JSON, á fim de autenticar e logar o usuário COORDENADOR.\n\nResultado: Status 200 - OK, autenticação foi realizado com sucesso."
+			},
+			"response": []
+		},
+		{
+			"name": "TU03-dentista-auth-login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "",
+						"value": "",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"email\": \"dentista1@dentista.com\",\r\n  \"senha\": \"dentista\"\r\n}"
+				},
+				"url": {
+					"raw": "{{sbms-login}}",
+					"host": [
+						"{{sbms-login}}"
+					]
+				},
+				"description": "Headers: São as variáveis que indicam o tipo de conteudo (JSON) e o token de autenticação.  \nBody: São dados, o \"corpo\" do teste, no nosso caso o JSON referente aos dados que serão requisitados e testados.\n\nDescrição: É requisitado a url 'localhost:3000/login/auth' juntamente com o JSON, a fim de autenticar e logar o usuário DENTISTA.\n\nResultado: Status 200 - OK, autenticação foi realizado com sucesso."
+			},
+			"response": []
+		},
+		{
+			"name": "TU04-arrolador-auth-login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"email\": \"arrolador1@arrolador.com\",\r\n  \"senha\": \"arrolador\"\r\n}"
+				},
+				"url": {
+					"raw": "{{sbms-login}}",
+					"host": [
+						"{{sbms-login}}"
+					]
+				},
+				"description": "Headers: São as variáveis que indicam o tipo de conteudo (JSON) e o token de autenticação.  \nBody: São dados, o \"corpo\" do teste, no nosso caso o JSON referente aos dados que serão requisitados e testados.\n\nDescrição: É requisitado a url 'localhost:3000/login/auth' juntamente com o JSON, a fim de autenticar e logar o usuário ARROLADOR.\n\nResultado: Status 200 - OK, autenticação foi realizado com sucesso."
+			},
+			"response": []
+		},
+		{
+			"name": "TU05-assistente-auth-login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"email\": \"assistente1@assistente.com\",\r\n  \"senha\": \"assistente\"\r\n}"
+				},
+				"url": {
+					"raw": "{{sbms-login}}",
+					"host": [
+						"{{sbms-login}}"
+					]
+				},
+				"description": "Headers: São as variáveis que indicam o tipo de conteudo (JSON) e o token de autenticação.  \nBody: São dados, o \"corpo\" do teste, no nosso caso o JSON referente aos dados que serão requisitados e testados.\n\nDescrição: É requisitado a url 'localhost:3000/login/auth' juntamente com o JSON, a fim de autenticar e logar o usuário ASSISTENTE.\n\nResultado: Status 200 - OK, autenticação foi realizado com sucesso."
+			},
+			"response": []
+		},
+		{
+			"name": "TU06-mudar-senha",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{authArrolH}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"arrolador1@arrolador.com\",\r\n    \"senhaAtual\":\"arrolador1\",\r\n    \"senhaNova\":\"arrolador\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{sbms-mudar-senha}}",
+					"host": [
+						"{{sbms-mudar-senha}}"
+					]
+				},
+				"description": "Headers: São as variáveis que indicam o tipo de conteudo (JSON) e o token de autenticação.  \nBody: São dados, o \"corpo\" do teste, no nosso caso o JSON referente aos dados que serão requisitados e testados.\n\nDescrição: É requisitado a url 'localhost:3000/auth/reset-password' juntamente com o JSON, a fim de mudar a senha do próprio usuário.\n\nResultado: Status 200 - OK, autenticação foi realizado com sucesso.\n\n\\- 16/05: Status 204 - Senha alterada com sucesso para os usuários: Admin, Coordenador, Dentista, Arrolador e Assistente."
+			},
+			"response": []
+		},
+		{
+			"name": "TU07-usuario-auth-login-desativado",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "",
+						"value": "",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"email\": \"dentista4@dentista.com\",\r\n  \"senha\": \"dentista\"\r\n}"
+				},
+				"url": {
+					"raw": "{{sbms-login}}",
+					"host": [
+						"{{sbms-login}}"
+					]
+				},
+				"description": "Headers: São as variáveis que indicam o tipo de conteudo (JSON) e o token de autenticação.  \nBody: São dados, o \"corpo\" do teste, no nosso caso o JSON referente aos dados que serão requisitados e testados.\n\nDescrição: É requisitado a url 'localhost:3000/login/auth' juntamente com o JSON, a fim de autenticar e logar algum usuário.\n\nResultado: Status 401 - Unauthorized, autenticação não foi feita pois o usuário foi desativado pelo admin."
+			},
+			"response": []
+		},
+		{
+			"name": "heroku-login-admin",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"email\": \"admin@admin.com\",\r\n  \"senha\": \"admin\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{heroku}}auth/login",
+					"host": [
+						"{{heroku}}auth"
+					],
+					"path": [
+						"login"
+					]
+				},
+				"description": "Foi executado o teste T01, nesse caso utilizando a URL do Heroku ([http://saude-bucal-backend.herokuapp.com/](http://saude-bucal-backend.herokuapp.com/)) e o login foi autenticado com sucesso."
+			},
+			"response": []
+		},
+		{
+			"name": "heroku-login-geral",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"email\": \"coordenador2@coordenador.com\",\r\n  \"senha\": \"coordenador\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{heroku}}auth/login",
+					"host": [
+						"{{heroku}}auth"
+					],
+					"path": [
+						"login"
+					]
+				},
+				"description": "Foram executados os testes T02, T03, T04 e T05, nesse caso utilizando a URL do Heroku ([http://saude-bucal-backend.herokuapp.com/](http://saude-bucal-backend.herokuapp.com/)) e todos os logins foram feitos com sucesso, retornando os tokens dos mesmos."
+			},
+			"response": []
+		},
+		{
+			"name": "heroku-mudar-senha",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlhdCI6MTY1NDIwMTM1MiwiZXhwIjoxNjYyNzU0OTUyfQ.QfuET1I3F8fXYYnUy6wKEpSAGvBciYRezpENeIWo_tE",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"coordenador1@coordenador.com\",\r\n    \"senhaAtual\":\"coordenador\",\r\n    \"senhaNova\":\"coordenador1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{heroku}}auth/reset-password",
+					"host": [
+						"{{heroku}}auth"
+					],
+					"path": [
+						"reset-password"
+					]
+				},
+				"description": "Foi executado o teste T06, nesse caso utilizando a URL do Heroku ([http://saude-bucal-backend.herokuapp.com/](http://saude-bucal-backend.herokuapp.com/)) e foi possível alterar a senha de todos os papéis."
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,427 @@
+{
+	"info": {
+		"_postman_id": "8c90cf30-a120-a89f-554b-8bcead0f83bc",
+		"name": "CRUD Local",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20572652"
+	},
+	"item": [
+		{
+			"name": "TU10-admin-mostrar-detalhes-avaliacoes-municipio-nao-existente",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{authAdminC}}"
+					}
+				],
+				"url": {
+					"raw": "{{sbms-local}}/10",
+					"host": [
+						"{{sbms-local}}"
+					],
+					"path": [
+						"10"
+					]
+				},
+				"description": "Headers: São as variáveis que indicam o tipo de conteudo (JSON) e o token de autenticação.\n\nDescrição: É requisitado a url 'localhost:3000/locations/1555', com o token de autenticação do usuário ADMIN, a fim de se obter os detalhes das avaliações daquele município que não existe.\n\nResultado: STATUS 404 NOT FOUND, é retornado \"local não existente\" para o id 1555."
+			},
+			"response": []
+		},
+		{
+			"name": "TU11-admin-mostrar-detalhes-avaliacoes-municipio-x",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{authAdminH}}"
+					}
+				],
+				"url": {
+					"raw": "{{sbms-local}}/1",
+					"host": [
+						"{{sbms-local}}"
+					],
+					"path": [
+						"1"
+					]
+				},
+				"description": "Headers: São as variáveis que indicam o tipo de conteúdo (JSON) e o token de autenticação.\n\nDescrição: É requisitado a url 'localhost:3000/locations/1', com o token de autenticação do usuário ADMIN, a fim de se obter os detalhes das avaliações daquele município.\n\nResultado: STATUS 200 OK, Mostra todas as avaliações coletadas no município de ID 1."
+			},
+			"response": []
+		},
+		{
+			"name": "TU12-admin-mostrar-locais",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{authAdminH}}"
+					}
+				],
+				"url": {
+					"raw": "{{sbms-local}}",
+					"host": [
+						"{{sbms-local}}"
+					]
+				},
+				"description": "Headers: São as variáveis que indicam o tipo de conteúdo (JSON) e o token de autenticação.\n\nDescrição: É requisitado a url 'localhost:3000/locations' juntamente com o JSON , com o token de autenticação do usuário ADMIN, a fim de mostrar todos os locais cadastrados do sistema.\n\nResultado: STATUS 200 OK, Utilizando o login do admin, é mostrado todos os locais cadastrados no sistema."
+			},
+			"response": []
+		},
+		{
+			"name": "TU13-admin-criar-novo-local",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{authAdminH}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "\t{\n        \"municipio\": \"Municipio 4\",\n        \"escola\": \"Escola 4\"\n    }"
+				},
+				"url": {
+					"raw": "{{sbms-local}}",
+					"host": [
+						"{{sbms-local}}"
+					]
+				},
+				"description": "Headers: São as variáveis que indicam o tipo de conteúdo (JSON) e o token de autenticação.  \nBody: São dados, o \"corpo\" do teste, no nosso caso o JSON referente aos dados que serão requisitados e testados.\n\nDescrição: É requisitado a url 'localhost:3000/locations', com o token de autenticação do usuário ADMIN e o JSON com os dados do local a ser cadastrado , a fim de cadastrar um novo local.\n\nResultado: Status 201 created, Admin consegue criar novo local.\n\nRelatório de Bugs:\n\n\\- 16/05: Cannot POST."
+			},
+			"response": []
+		},
+		{
+			"name": "TU14-admin-criar-novo-local-ja-existente",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{authAdminC}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "\t{\n        \"municipio\": \"Municipio 3\",\n        \"escola\": \"Escola 3\"\n    }"
+				},
+				"url": {
+					"raw": "{{sbms-local}}",
+					"host": [
+						"{{sbms-local}}"
+					]
+				},
+				"description": "Headers: São as variáveis que indicam o tipo de conteúdo (JSON) e o token de autenticação.  \nBody: São dados, o \"corpo\" do teste, no nosso caso o JSON referente aos dados que serão requisitados e testados.\n\nDescrição: É requisitado a url 'localhost:3000/location', com o token de autenticação do usuário ADMIN e o JSON com os dados de um local já cadastrado .\n\nResultado: Status 409 Confict, Admin não consegue criar novo local com os mesmos dados já criados.\n\nRelatorio de bugs:\n\n\\- 09-05 Status 201 created, Admin consegue criar novo local com os mesmos dados já criados.(To fix)\n\n\\- 18-05 Status 409 Confict, Admin não consegue criar novo local com os mesmos dados já criados. (Fixed - Demetrius Panovitch)"
+			},
+			"response": []
+		},
+		{
+			"name": "TU15-admin-editar-local",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{authAdminC}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"municipio\": \"Campo Grande update\",\n        \"escola\": \"CFCM\"\n    }"
+				},
+				"url": {
+					"raw": "{{sbms-local}}/5",
+					"host": [
+						"{{sbms-local}}"
+					],
+					"path": [
+						"5"
+					]
+				},
+				"description": "Headers: São as variáveis que indicam o tipo de conteúdo (JSON) e o token de autenticação.  \nBody: São dados, o \"corpo\" do teste, no nosso caso o JSON referente aos dados que serão requisitados e testados.\n\nDescrição: É requisitado a url ''localhost:3000/locations/5'', com o token de autenticação do usuário ADMIN, a fim de editar o local com o \"id 5\".\n\nResultado: STATUS 200 OK, Admin consegue editar os dados do local."
+			},
+			"response": []
+		},
+		{
+			"name": "TU16-admin-editar-local-nao-existente",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{authAdminC}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\n        \"municipio\": \"Municipio 2\",\n        \"escola\": \"Escola 3\"\n    }"
+				},
+				"url": {
+					"raw": "{{sbms-local}}/9",
+					"host": [
+						"{{sbms-local}}"
+					],
+					"path": [
+						"9"
+					]
+				},
+				"description": "Headers: São as variáveis que indicam o tipo de conteúdo (JSON) e o token de autenticação.  \nBody: São dados, o \"corpo\" do teste, no nosso caso o JSON referente aos dados que serão requisitados e testados.\n\nDescrição: É requisitado a url ''localhost:3000/locations/9'', com o token de autenticação do usuário ADMIN e o JSON com os dados a serem editados, a fim de editar o local com o \"id 9\" (não existente).\n\nResultado: STATUS 404 NOT FOUND, Admin não consegue editar local não existente."
+			},
+			"response": []
+		},
+		{
+			"name": "TU17-usuario-mostrar-detalhes-avaliacoes-municipio-nao-existente",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{authCoordH}}"
+					}
+				],
+				"url": {
+					"raw": "{{sbms-local}}/15",
+					"host": [
+						"{{sbms-local}}"
+					],
+					"path": [
+						"15"
+					]
+				},
+				"description": "Headers: São as variáveis que indicam o tipo de conteúdo (JSON) e o token de autenticação.  \nBody: São dados, o \"corpo\" do teste, no nosso caso o JSON referente aos dados que serão requisitados e testados.\n\nDescrição: É requisitado a url 'localhost:3000/locations/15', com o token de autenticação do usuário (coordenador, dentista, assistente e arrolador), á fim de se obter os detalhes das avaliações daquele município que não existe.\n\nResultado: STATUS 404 NOT FOUND, é retornado \"local não existente\" para o id 15."
+			},
+			"response": []
+		},
+		{
+			"name": "TU18-usuario-mostrar-detalhes-avaliacoes-municipio-x",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{authAdminH}}"
+					}
+				],
+				"url": {
+					"raw": "{{sbms-local}}/1",
+					"host": [
+						"{{sbms-local}}"
+					],
+					"path": [
+						"1"
+					]
+				},
+				"description": "Headers: São as variáveis que indicam o tipo de conteúdo (JSON) e o token de autenticação.  \nDescrição: É requisitado a url 'localhost:3000/locations/1', com o token de autenticação do usuário (coordenador, dentista, assistente e arrolador), á fim de se obter os detalhes da avaliaçõe daquele município de ID 1.\n\nResultado: STATUS 200 OK, Mostra todas as avaliações coletadas no município de ID 1."
+			},
+			"response": []
+		},
+		{
+			"name": "TU19-usuario-mostrar-locais",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{authCoordH}}"
+					}
+				],
+				"url": {
+					"raw": "{{sbms-local}}",
+					"host": [
+						"{{sbms-local}}"
+					]
+				},
+				"description": "Headers: São as variáveis que indicam o tipo de conteúdo (JSON) e o token de autenticação.  \nDescrição: É requisitado a url 'localhost:3000/locations', com o token de autenticação do usuário (coordenador, dentista, assistente e arrolador), a fim de mostrar todos os locais cadastrados do sistema.\n\nResultado: STATUS 200 OK, Utilizando o login do usuario, é mostrado todos os locais cadastrados no sistema."
+			},
+			"response": []
+		},
+		{
+			"name": "TU20-usuario-criar-novo-local",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{authCoordH}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"municipio\": \"Campo Grande\",\n        \"escola\": \"CFCM\"\n    }"
+				},
+				"url": {
+					"raw": "{{sbms-local}}",
+					"host": [
+						"{{sbms-local}}"
+					]
+				},
+				"description": "Headers: São as variáveis que indicam o tipo de conteúdo (JSON) e o token de autenticação.  \nBody: São dados, o \"corpo\" do teste, no nosso caso o JSON referente aos dados que serão requisitados e testados.\n\nDescrição: É requisitado a url 'localhost:3000/locations', com o token de autenticação do usuário (coordenador, dentista, assistente e arrolador), a fim de cadastrar um novo local.\n\nResultado: Status 401 unauthorized, Usuário não consegue criar novo local."
+			},
+			"response": []
+		},
+		{
+			"name": "TU21-usuario-editar-local",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{authCoordC}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"municipio\": \"Campo Grande\",\n        \"escola\": \"CFCM\"\n    }"
+				},
+				"url": {
+					"raw": "{{sbms-local}}/6",
+					"host": [
+						"{{sbms-local}}"
+					],
+					"path": [
+						"6"
+					]
+				},
+				"description": "Headers: São as variáveis que indicam o tipo de conteúdo (JSON) e o token de autenticação.  \nBody: São dados, o \"corpo\" do teste, no nosso caso o JSON referente aos dados que serão requisitados e testados.\n\nDescrição:É requisitado a url 'localhost:3000/locations/6', com o token de autenticação do usuário (coordenador, dentista, assistente e arrolador), a fim de editar o local com ID 6.\n\nResultado: Status 401 unauthorized, Usuário não consegue editar local."
+			},
+			"response": []
+		},
+		{
+			"name": "heroku-mostrar-locais",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTY1NTc0NzU2NiwiZXhwIjoxNjU1ODMzOTY2fQ.G3eYpyRyKnkZQUhwAs-dft-7PQgIPs5H1bBkoeaa3Qo",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{heroku}}locations",
+					"host": [
+						"{{heroku}}locations"
+					]
+				},
+				"description": "Foram executados os testes TU12 e TU19, nesse caso utilizando a URL do Heroku ([http://saude-bucal-backend.herokuapp.com/](http://saude-bucal-backend.herokuapp.com/)) e são mostrados todos os locais cadastrados, com todos os usuários."
+			},
+			"response": []
+		},
+		{
+			"name": "heroku-criar-locais",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTY1NDU0MTA4MSwiZXhwIjoxNjU0NjI3NDgxfQ.mmQBP9BdLhtKHnD2hmkEadHzHfJE-DaB4zi_4c7u6AI",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "\t{\r\n        \"escola\": \"Escola 5\",\r\n        \"municipio\": \"Municipio 5\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{heroku}}locations",
+					"host": [
+						"{{heroku}}locations"
+					]
+				},
+				"description": "Foram executados os testes TU13 e TU20, nesse caso utilizando a URL do Heroku ([http://saude-bucal-backend.herokuapp.com/](http://saude-bucal-backend.herokuapp.com/)) e foi possível criar novos locais com todos os usuários (que têm permissão)."
+			},
+			"response": []
+		},
+		{
+			"name": "heroku-editar-locais",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTY1NDU0MTA4MSwiZXhwIjoxNjU0NjI3NDgxfQ.mmQBP9BdLhtKHnD2hmkEadHzHfJE-DaB4zi_4c7u6AI",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "\t{\r\n        \"escola\": \"Escola 4\",\r\n        \"municipio\": \"Municipio 4\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{heroku}}locations/4",
+					"host": [
+						"{{heroku}}locations"
+					],
+					"path": [
+						"4"
+					]
+				},
+				"description": "Foram executados os testes TU15 e TU21, nesse caso utilizando a URL do Heroku ([http://saude-bucal-backend.herokuapp.com/](http://saude-bucal-backend.herokuapp.com/)) e é possível editar os locais com os usuários que têm permissão."
+			},
+			"response": []
+		}
+	]
+}

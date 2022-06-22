@@ -1,0 +1,677 @@
+{
+	"info": {
+		"_postman_id": "45cb939c-fe74-f168-9f07-de31826232fb",
+		"name": "CRUD User",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20572652"
+	},
+	"item": [
+		{
+			"name": "TU70-admin-adicionar-dentista-valido",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{authAdminH}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"email\": \"dentista5@dentista.com\",\r\n        \"senha\": \"dentista\",\r\n        \"papel\": \"DENTISTA\",\r\n        \"nome\": \"Dentista 5 da Silva\",\r\n        \"idEquipe\": 2\r\n}"
+				},
+				"url": {
+					"raw": "{{sbms-usuario}}",
+					"host": [
+						"{{sbms-usuario}}"
+					]
+				},
+				"description": "Headers: São as variáveis que indicam o tipo de conteudo (JSON) e o token de autenticação.  \nBody: São dados, o \"corpo\" do teste, no nosso caso o JSON referente aos dados que serão requisitados e testados.\n\nDescrição: É requisitado a url 'localhost:3000/users' juntamente com o JSON preenchido com os dados: email, senha, papel e nome além do token de autenticação do usuário ADMIN, a fim de cadastrar um novo dentista.\n\nResultado: Status 200 OK. ADMIN consegue cadastrar um novo dentista.\n\n\\- 01/06: Status 200 Ok. Admin consegue cadastrar um novo dentista e alocá-lo em uma equipe"
+			},
+			"response": []
+		},
+		{
+			"name": "TU71-admin-adicionar-dentista-email-repetido",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{authAdminH}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"email\": \"dentista3@dentista.com\",\r\n        \"senha\": \"dentista\",\r\n        \"papel\": \"DENTISTA\",\r\n        \"nome\": \"Dentista 3 da Silva\"\r\n}"
+				},
+				"url": {
+					"raw": "{{sbms-usuario}}",
+					"host": [
+						"{{sbms-usuario}}"
+					]
+				},
+				"description": "Headers: São as variáveis que indicam o tipo de conteudo (JSON) e o token de autenticação.  \nBody: São dados, o \"corpo\" do teste, no nosso caso o JSON referente aos dados que serão requisitados e testados.\n\nDescrição: É requisitado a url 'localhost:3000/users' juntamente com o JSON preenchido com os dados: email, senha, papel e nome além do token de autenticação do usuário ADMIN, a fim de adicionar um novo dentista com um e-mail já utilizado\n\nResultado: Status 400. Não é possível criar um novo dentista com um e-mail já utilizado."
+			},
+			"response": []
+		},
+		{
+			"name": "*TU72-admin-adicionar-dentista-email-formato-nome-nulo",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{authAdminH}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"email\": \"dentistadentista\",\r\n        \"senha\": \"dentista\",\r\n        \"papel\": \"DENTISTA\",\r\n        \"nome\": \"Dentista da Silva\"\r\n}"
+				},
+				"url": {
+					"raw": "{{sbms-usuario}}",
+					"host": [
+						"{{sbms-usuario}}"
+					]
+				},
+				"description": "Um administrador consegue adicionar um dentista com e-mail sem formato pré-definido (@ e .com). Também pode adicionar um usuário sem nome. (Formato sera verificado no front)"
+			},
+			"response": []
+		},
+		{
+			"name": "TU73-admin-adicionar-coordenador-valido",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{authAdminH}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"email\": \"coordenador6@coordenador.com\",\r\n    \"papel\": \"COORDENADOR\",\r\n    \"senha\": \"coordenador\",\r\n    \"nome\": \"Coordenador 6 da Silva\"\r\n}"
+				},
+				"url": {
+					"raw": "{{sbms-usuario}}",
+					"host": [
+						"{{sbms-usuario}}"
+					]
+				},
+				"description": "Headers: São as variáveis que indicam o tipo de conteudo (JSON) e o token de autenticação.  \nBody: São dados, o \"corpo\" do teste, no nosso caso o JSON referente aos dados que serão requisitados e testados.\n\nDescrição: É requisitado a url 'localhost:3000/users' juntamente com o JSON preenchido com os dados: email, senha, papel e nome além do token de autenticação do usuário ADMIN, a fim de cadastrar um novo coordenador.\n\nResultado: Status 200 OK. ADMIN consegue cadastrar um novo coordenador."
+			},
+			"response": []
+		},
+		{
+			"name": "TU74-admin-adicionar-coordenador-email-repetido",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{authAdminH}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"email\": \"coordenador1@coordenador.com\",\r\n    \"papel\": \"COORDENADOR\",\r\n    \"senha\": \"coordenador\",\r\n    \"nome\": \"Coordenador 1 da Silva\"\r\n}"
+				},
+				"url": {
+					"raw": "{{sbms-usuario}}",
+					"host": [
+						"{{sbms-usuario}}"
+					]
+				},
+				"description": "Headers: São as variáveis que indicam o tipo de conteudo (JSON) e o token de autenticação.  \nBody: São dados, o \"corpo\" do teste, no nosso caso o JSON referente aos dados que serão requisitados e testados.\n\nDescrição: É requisitado a url 'localhost:3000/users' juntamente com o JSON preenchido com os dados: email, senha, papel e nome além do token de autenticação do usuário ADMIN, a fim de adicionar um novo coordenador com um e-mail já utilizado.\n\nResultado: Status 400. Não é possível criar um novo coordenador com um e-mail já utilizado."
+			},
+			"response": []
+		},
+		{
+			"name": "TU75-admin-adicionar-arrolador-valido",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{authAdminH}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"nome\": \"Arrolador 3 da Silva\",\r\n\t\"email\": \"arrolador3@arrolador.com\",\r\n    \"papel\": \"ARROLADOR\",\r\n    \"senha\": \"arrolador\"\r\n}"
+				},
+				"url": {
+					"raw": "{{sbms-usuario}}",
+					"host": [
+						"{{sbms-usuario}}"
+					]
+				},
+				"description": "Headers: São as variáveis que indicam o tipo de conteudo (JSON) e o token de autenticação.  \nBody: São dados, o \"corpo\" do teste, no nosso caso o JSON referente aos dados que serão requisitados e testados.\n\nDescrição: É requisitado a url 'localhost:3000/users' juntamente com o JSON preenchido com os dados: email, senha, papel e nome além do token de autenticação do usuário ADMIN, a fim de cadastrar um novo arrolador.\n\nResultado: Status 200 OK. ADMIN consegue cadastrar um novo arrolador."
+			},
+			"response": []
+		},
+		{
+			"name": "TU76-admin-adicionar-arrolador-email-repetido",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiQURNSU4iLCJpYXQiOjE2NTA5OTQ3NzYsImV4cCI6MTY1MTA4MTE3Niwic3ViIjoiMSJ9.IRPdHBvZdbDvv3FPg1eE_-Kk4wSldMzCb4FPw9fi984"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"email\": \"arrolador1@arrolador.com\",\r\n    \"papel\": \"ARROLADOR\",\r\n    \"senha\": \"arrolador\",\r\n    \"nome\": \"Arrolador 1 da Silva\"\r\n}"
+				},
+				"url": {
+					"raw": "{{sbms-usuario}}",
+					"host": [
+						"{{sbms-usuario}}"
+					]
+				},
+				"description": "Headers: São as variáveis que indicam o tipo de conteudo (JSON) e o token de autenticação.  \nBody: São dados, o \"corpo\" do teste, no nosso caso o JSON referente aos dados que serão requisitados e testados.\n\nDescrição: É requisitado a url 'localhost:3000/users' juntamente com o JSON preenchido com os dados: email, senha, papel e nome além do token de autenticação do usuário ADMIN, a fim de adicionar um novo arrolador com um e-mail já utilizado.\n\nResultado: Status 400. Não é possível criar um novo arrolador com um e-mail já utilizado."
+			},
+			"response": []
+		},
+		{
+			"name": "TU77-admin-adicionar-coordenador-email-repetido",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiQURNSU4iLCJpYXQiOjE2NTA5OTQ3NzYsImV4cCI6MTY1MTA4MTE3Niwic3ViIjoiMSJ9.IRPdHBvZdbDvv3FPg1eE_-Kk4wSldMzCb4FPw9fi984"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"email\": \"coordenador1@coordenador.com\",\r\n        \"senha\": \"coordenador\",\r\n        \"papel\": \"COORDENADOR\",\r\n        \"nome\": \"Coordenador da Silva\"\r\n}"
+				},
+				"url": {
+					"raw": "{{sbms-usuario}}",
+					"host": [
+						"{{sbms-usuario}}"
+					]
+				},
+				"description": "Headers: São as variáveis que indicam o tipo de conteudo (JSON) e o token de autenticação.  \nBody: São dados, o \"corpo\" do teste, no nosso caso o JSON referente aos dados que serão requisitados e testados.\n\nDescrição: É requisitado a url 'localhost:3000/users' juntamente com o JSON preenchido com os dados: email, senha, papel e nome além do token de autenticação do usuário ADMIN, a fim de adicionar um novo coordenador com um e-mail já utilizado.\n\nResultado: Status 400. Não é possível criar um novo coordenador com um e-mail já utilizado."
+			},
+			"response": []
+		},
+		{
+			"name": "TU78-admin-adicionar-assistente-valido",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{authAdminH}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"nome\": \"Assistente 3 da Silva\",\r\n\t\"email\": \"assistente3@assistente.com\",\r\n    \"papel\": \"ASSISTENTE\",\r\n    \"senha\": \"assistente\"\r\n}"
+				},
+				"url": {
+					"raw": "{{sbms-usuario}}",
+					"host": [
+						"{{sbms-usuario}}"
+					]
+				},
+				"description": "Headers: São as variáveis que indicam o tipo de conteudo (JSON) e o token de autenticação.  \nBody: São dados, o \"corpo\" do teste, no nosso caso o JSON referente aos dados que serão requisitados e testados.\n\nDescrição: É requisitado a url 'localhost:3000/users' juntamente com o JSON preenchido com os dados: email, senha, papel e nome além do token de autenticação do usuário ADMIN, a fim de cadastrar um novo assistente.\n\nResultado: Status 200 OK. ADMIN consegue cadastrar um novo assistente."
+			},
+			"response": []
+		},
+		{
+			"name": "TU79-admin-adicionar-assistente-email-repetido",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiQURNSU4iLCJpYXQiOjE2NTA5OTQ3NzYsImV4cCI6MTY1MTA4MTE3Niwic3ViIjoiMSJ9.IRPdHBvZdbDvv3FPg1eE_-Kk4wSldMzCb4FPw9fi984"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"email\": \"assistente1@assistente.com\",\r\n    \"papel\": \"ASSISTENTE\",\r\n    \"senha\": \"assistente\",\r\n    \"nome\": \"Assistente 1 da Silva\"\r\n}"
+				},
+				"url": {
+					"raw": "{{sbms-usuario}}",
+					"host": [
+						"{{sbms-usuario}}"
+					]
+				},
+				"description": "Headers: São as variáveis que indicam o tipo de conteudo (JSON) e o token de autenticação.  \nBody: São dados, o \"corpo\" do teste, no nosso caso o JSON referente aos dados que serão requisitados e testados.\n\nDescrição: É requisitado a url 'localhost:3000/users' juntamente com o JSON preenchido com os dados: email, senha, papel e nome além do token de autenticação do usuário ADMIN, a fim de adicionar um novo assistente com um e-mail já utilizado\n\nResultado: Status 400. Não é possível criar um novo assistente com um e-mail já utilizado."
+			},
+			"response": []
+		},
+		{
+			"name": "TU80-coordenador-adicionar-papel-invalido",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEyLCJpYXQiOjE2NTI3MzM4NzgsImV4cCI6MTY2MTI4NzQ3OH0.wJt1MaUCqMVrLzgrLJGnpJxYRJFkDPflI3p3UjDPryI"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"email\": \"coordenador5@coordenador.com\",\r\n    \"papel\": \"COORDENADOR\",\r\n    \"senha\": \"coordenador\",\r\n    \"nome\": \"Coordenador 5 da Silva\"\r\n}"
+				},
+				"url": {
+					"raw": "{{sbms-usuario}}",
+					"host": [
+						"{{sbms-usuario}}"
+					]
+				},
+				"description": "Headers: São as variáveis que indicam o tipo de conteudo (JSON) e o token de autenticação.  \nBody: São dados, o \"corpo\" do teste, no nosso caso o JSON referente aos dados que serão requisitados e testados.\n\nDescrição: É requisitado a url 'localhost:3000/users' juntamente com o JSON preenchido com os dados: email, senha, papel e nome além do token de autenticação do usuário COORDENADOR, a fim de cadastrar um novo coordenador.\n\nResultado: Status 401 Unauthorized. COORDENADOR não consegue cadastrar um novo COORDENADOR ou ADMIN."
+			},
+			"response": []
+		},
+		{
+			"name": "TU81-coordenador-adicionar-dentista-valido",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEyLCJpYXQiOjE2NTI3MzM4NzgsImV4cCI6MTY2MTI4NzQ3OH0.wJt1MaUCqMVrLzgrLJGnpJxYRJFkDPflI3p3UjDPryI"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"email\": \"dentista4@dentista.com\",\r\n        \"senha\": \"dentista\",\r\n        \"papel\": \"DENTISTA\",\r\n        \"nome\": \"Dentista 4 da Silva\"\r\n}"
+				},
+				"url": {
+					"raw": "{{sbms-usuario}}",
+					"host": [
+						"{{sbms-usuario}}"
+					]
+				},
+				"description": "Headers: São as variáveis que indicam o tipo de conteudo (JSON) e o token de autenticação.  \nBody: São dados, o \"corpo\" do teste, no nosso caso o JSON referente aos dados que serão requisitados e testados.\n\nDescrição: É requisitado a url 'localhost:3000/users' juntamente com o JSON preenchido com os dados: email, senha, papel e nome além do token de autenticação do usuário COORDENADOR, a fim de cadastrar um novo dentista.\n\nResultado: Status 200 OK. COORDENADOR consegue cadastrar um novo dentista."
+			},
+			"response": []
+		},
+		{
+			"name": "TU82-coordenador-adicionar-arrolador-valido",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{authCoordH}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"email\": \"arrolador8@arrolador.com\",\r\n    \"papel\": \"ARROLADOR\",\r\n    \"senha\": \"arrolador\",\r\n    \"nome\": \"Arrolador 9 da Silva\",\r\n    \"idEquipe\": 2\r\n}"
+				},
+				"url": {
+					"raw": "{{sbms-usuario}}",
+					"host": [
+						"{{sbms-usuario}}"
+					]
+				},
+				"description": "Headers: São as variáveis que indicam o tipo de conteudo (JSON) e o token de autenticação.  \nBody: São dados, o \"corpo\" do teste, no nosso caso o JSON referente aos dados que serão requisitados e testados.\n\nDescrição: É requisitado a url 'localhost:3000/users' juntamente com o JSON preenchido com os dados: email, senha, papel e nome além do token de autenticação do usuário COORDENADOR, a fim de cadastrar um novo arrolador.\n\nResultado: Status 200 OK. Coordenador consegue cadastrar um novo arrolador."
+			},
+			"response": []
+		},
+		{
+			"name": "TU83-coordenador-adicionar-assistente-valido",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiQ09PUkRFTkFET1IiLCJpYXQiOjE2NTE2MDcwMjAsImV4cCI6MTY1MTY5MzQyMCwic3ViIjoiMjAifQ.K8B0rG8mMLSksg7--hXNYhUDBuLSiR3bWNgkc2Ru9Hc"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"email\": \"assistente12@assistente.com\",\r\n    \"papel\": \"ASSISTENTE\",\r\n    \"senha\": \"assistente12\",\r\n    \"nome\": \"Assistente 12 da Silva\"\r\n}"
+				},
+				"url": {
+					"raw": "{{sbms-usuario}}",
+					"host": [
+						"{{sbms-usuario}}"
+					]
+				},
+				"description": "Headers: São as variáveis que indicam o tipo de conteudo (JSON) e o token de autenticação.  \nBody: São dados, o \"corpo\" do teste, no nosso caso o JSON referente aos dados que serão requisitados e testados.\n\nDescrição: É requisitado a url 'localhost:3000/users' juntamente com o JSON preenchido com os dados: email, senha, papel e nome além do token de autenticação do usuário COORDENADOR, a fim de cadastrar um novo assistente.\n\nResultado: Status 200 OK. COORDENADOR consegue cadastrar um novo assistente."
+			},
+			"response": []
+		},
+		{
+			"name": "TU84-dentista-adicionar-usuario",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiREVOVElTVEEiLCJpYXQiOjE2NTIxMzQ0NTQsImV4cCI6MTY1MjIyMDg1NCwic3ViIjoiNCJ9.lWGlVwMZGCJsNYdqJ6afJdyUDnCcZbg8SIpvgjU2NgY"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"email\": \"assistente11@assistente.com\",\r\n    \"papel\": \"ASSISTENTE\",\r\n    \"senha\": \"assistente11\",\r\n    \"nome\": \"Assistente 11 da Silva\"\r\n}"
+				},
+				"url": {
+					"raw": "{{sbms-usuario}}",
+					"host": [
+						"{{sbms-usuario}}"
+					]
+				},
+				"description": "Headers: São as variáveis que indicam o tipo de conteudo (JSON) e o token de autenticação.  \nBody: São dados, o \"corpo\" do teste, no nosso caso o JSON referente aos dados que serão requisitados e testados.\n\nDescrição: É requisitado a url 'localhost:3000/users', juntamente com o JSON preenchido com os dados: email, senha, papel e nome além do token de autenticação do usuário DENTISTA, a fim de criar um novo usuário.\n\nResultado: Status 401: Unauthorized. Dentista não consegue adicionar um novo usuário."
+			},
+			"response": []
+		},
+		{
+			"name": "TU85-assistente-adicionar-usuario",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiQVNTSVNURU5URSIsImlhdCI6MTY1MDk5NjEwMywiZXhwIjoxNjUxMDgyNTAzLCJzdWIiOiI2In0.3dmIWzfvbb9hmO9edfDqfQZZ3cdsbTM8BozOAZ_zOMI"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"email\": \"assistente10@assistente.com\",\r\n    \"papel\": \"ASSISTENTE\",\r\n    \"senha\": \"assistente10\",\r\n    \"nome\": \"Assistente 10 da Silva\"\r\n}"
+				},
+				"url": {
+					"raw": "{{sbms-usuario}}",
+					"host": [
+						"{{sbms-usuario}}"
+					]
+				},
+				"description": "Headers: São as variáveis que indicam o tipo de conteudo (JSON) e o token de autenticação.  \nBody: São dados, o \"corpo\" do teste, no nosso caso o JSON referente aos dados que serão requisitados e testados.\n\nDescrição: É requisitado a url 'localhost:3000/users', juntamente com o JSON preenchido com os dados: email, senha, papel e nome além do token de autenticação do usuário ASSISTENTE, a fim de criar um novo usuário.\n\nResultado: Status 401: Unauthorized. Assistente não consegue adicionar um novo usuário."
+			},
+			"response": []
+		},
+		{
+			"name": "TU86-arrolador-adicionar-usuario",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiQVJST0xBRE9SIiwiaWF0IjoxNjUxMDAwMjg4LCJleHAiOjE2NTEwODY2ODgsInN1YiI6IjgifQ.xPQsfsDwhjmm9BBbcF-QaP3NVgSE2w6JU5oRPwjx6_o"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"email\": \"assistente10@assistente.com\",\r\n    \"papel\": \"ASSISTENTE\",\r\n    \"senha\": \"assistente10\",\r\n    \"nome\": \"Assistente 10 da Silva\"\r\n}"
+				},
+				"url": {
+					"raw": "{{sbms-usuario}}",
+					"host": [
+						"{{sbms-usuario}}"
+					]
+				},
+				"description": "Headers: São as variáveis que indicam o tipo de conteudo (JSON) e o token de autenticação.  \nBody: São dados, o \"corpo\" do teste, no nosso caso o JSON referente aos dados que serão requisitados e testados.\n\nDescrição: É requisitado a url 'localhost:3000/users', juntamente com o JSON preenchido com os dados: email, senha, papel e nome além do token de autenticação do usuário ARROLADOR, a fim de criar um novo usuário.\n\nResultado: Status 401: Unauthorized. Arrolador não consegue adicionar um novo usuário."
+			},
+			"response": []
+		},
+		{
+			"name": "TU87-admin-mostrar-todos-usuarios",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{authAdminH}}"
+					}
+				],
+				"url": {
+					"raw": "{{sbms-usuario}}",
+					"host": [
+						"{{sbms-usuario}}"
+					]
+				},
+				"description": "Headers: São as variáveis que indicam o tipo de conteudo (JSON) e o token de autenticação.\n\nDescrição: É requisitado a url 'localhost:3000/users', necessário token de autenticação do usuário ADMIN, a fim de verificar a lista de todos os usuários do sistema.\n\nResultado: Status 200: OK. Administrador consegue ver todos os usuários do sistema."
+			},
+			"response": []
+		},
+		{
+			"name": "TU88-mostrar-usuarios-por-equipe",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{authCoordH}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{sbms-usuario}}",
+					"host": [
+						"{{sbms-usuario}}"
+					]
+				},
+				"description": "Headers: São as variáveis que indicam o tipo de conteudo (JSON) e o token de autenticação.\n\nDescrição: É requisitado a url 'localhost:3000/users', necessário token de autenticação do usuário COORDENADOR, a fim de verificar a lista dos usuários de sua própria equipe.\n\nResultado: Status 200: OK. Coordenador consegue ver lista de sua própria equipe. Demais usuários não conseguem ver essa lista."
+			},
+			"response": []
+		},
+		{
+			"name": "TU89-admin-desativar-usuario",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{authAdmin}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{sbms-usuario}}/13/deactivate",
+					"host": [
+						"{{sbms-usuario}}"
+					],
+					"path": [
+						"13",
+						"deactivate"
+					]
+				},
+				"description": "Headers: São as variáveis que indicam o tipo de conteudo (JSON) e o token de autenticação.\n\nDescrição: É requisitado a url 'localhost:3000/users/9/deactivate' informando o token de autenticação do usuário ADMIN, a fim de desativar um usuário.\n\nResultados:\n\n\\- 02/05: Status 200 OK. Admin consegue desativar um usuário já existente."
+			},
+			"response": []
+		},
+		{
+			"name": "TU90-coordenador-desativar-usuario",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{authCoordH}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{sbms-usuario}}/13/deactivate",
+					"host": [
+						"{{sbms-usuario}}"
+					],
+					"path": [
+						"13",
+						"deactivate"
+					]
+				},
+				"description": "Headers: São as variáveis que indicam o tipo de conteudo (JSON) e o token de autenticação.\n\nDescrição: É requisitado a url 'localhost:3000/users/12/deactivate' informando o token de autenticação do usuário COORDENADOR, a fim de desativar um usuário.\n\nResultados:\n\n\\- 02/05: Status 200 OK. Coordenador consegue desativar um usuário já existente.\n\n\\- 16/05: Status 404: Not Found. Quando um Coordenador tenta desativar um usuário de outra equipe, aparece que este usuário não existe."
+			},
+			"response": []
+		},
+		{
+			"name": "TU91-admin-mostrar-lista-equipes",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{authAdminH}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:3000/teams",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"teams"
+					]
+				},
+				"description": "Headers: São as variáveis que indicam o tipo de conteudo (JSON) e o token de autenticação.  \nBody: São dados, o \"corpo\" do teste, no nosso caso o JSON referente aos dados que serão requisitados e testados.\n\nDescrição: É requisitado a url 'localhost:3000/teams' juntamente com o token de autenticação do usuário ADMIN, a fim de mostrar a lista de equipes criadas.\n\nResultado:\n\n\\- 23/05: Status 200 Ok. Exibe lista de equipes criadas com o nome dos coordenadores de cada uma delas, além do ID destas."
+			},
+			"response": []
+		},
+		{
+			"name": "TU92-ativar-usuario",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{authAdminH}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{sbms-usuario}}/18/activate",
+					"host": [
+						"{{sbms-usuario}}"
+					],
+					"path": [
+						"18",
+						"activate"
+					]
+				},
+				"description": "Headers: São as variáveis que indicam o tipo de conteúdo (JSON) e o token de autenticação.  \nBody: São dados, o \"corpo\" do teste, no nosso caso o JSON referente aos dados que serão requisitados e testados.\n\nDescrição: É requisitado a url 'localhost:3000/users/:id/activate' juntamente com o token de autenticação do usuário ADMIN, a fim de ativar um usuário desativado.\n\nResultado:\n\n\\- 25/05: Status 200 Ok. Mostra os dados do usuário e ativa-o novamente. Testado com usuário Administrador e usuário Coordenador e ambos podem ativar/desativar usuários. Foi testado também com os papéis Arrolador, Assistente e Dentista e todos deram permissão negada."
+			},
+			"response": []
+		},
+		{
+			"name": "heroku-ativar-usuario",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{authAdminH}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{sbms-usuario}}/18/activate",
+					"host": [
+						"{{sbms-usuario}}"
+					],
+					"path": [
+						"18",
+						"activate"
+					]
+				},
+				"description": "Headers: São as variáveis que indicam o tipo de conteúdo (JSON) e o token de autenticação.  \nBody: São dados, o \"corpo\" do teste, no nosso caso o JSON referente aos dados que serão requisitados e testados.\n\nDescrição: É requisitado a url 'localhost:3000/users/:id/activate' juntamente com o token de autenticação do usuário ADMIN, a fim de ativar um usuário desativado.\n\nResultado:\n\n\\- 25/05: Status 200 Ok. Mostra os dados do usuário e ativa-o novamente. Testado com usuário Administrador e usuário Coordenador e ambos podem ativar/desativar usuários. Foi testado também com os papéis Arrolador, Assistente e Dentista e todos deram permissão negada."
+			},
+			"response": []
+		},
+		{
+			"name": "heroku-desativar-usuario",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTY1NDU0MTA4MSwiZXhwIjoxNjU0NjI3NDgxfQ.mmQBP9BdLhtKHnD2hmkEadHzHfJE-DaB4zi_4c7u6AI",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{heroku}}users/1/deactivate",
+					"host": [
+						"{{heroku}}users"
+					],
+					"path": [
+						"1",
+						"deactivate"
+					]
+				},
+				"description": "Headers: São as variáveis que indicam o tipo de conteúdo (JSON) e o token de autenticação.  \nBody: São dados, o \"corpo\" do teste, no nosso caso o JSON referente aos dados que serão requisitados e testados.\n\nDescrição: É requisitado a url 'localhost:3000/users/:id/activate' juntamente com o token de autenticação do usuário ADMIN, a fim de ativar um usuário desativado.\n\nResultado:\n\n\\- 25/05: Status 200 Ok. Mostra os dados do usuário e ativa-o novamente. Testado com usuário Administrador e usuário Coordenador e ambos podem ativar/desativar usuários. Foi testado também com os papéis Arrolador, Assistente e Dentista e todos deram permissão negada."
+			},
+			"response": []
+		}
+	]
+}
